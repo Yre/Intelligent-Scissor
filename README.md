@@ -6,8 +6,8 @@ This is a tool that allows a user to cut an object out of one image and paste it
 ### Reference Paper
 [Intelligent Scissors for Image Composition](http://dl.acm.org/citation.cfm?id=218442)
 ### Usage of This App
-Build form source code: `$make`  
-Clean the App: `$make clean`  
+Build form source code: `make`  
+Clean the App: `make clean`  
 User instructions: please refer to instructions.html  
 ### Requirements
 1. Linux/Unix (MacOSX supported) 
