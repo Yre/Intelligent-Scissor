@@ -21,19 +21,19 @@ all: MyApp
 
 # Define how to build the various object files...
 
-main.o: main.cxx 
+main.o: src/main.cxx 
 		$(CXX) -c $< $(CXXFLAGS)
 
-bitmap.o: bitmap.cxx  
+bitmap.o: src/bitmap.cxx  
 		$(CXX) -c $< $(CXXFLAGS)
 
-ISDoc.o: ISDoc.cxx 
+ISDoc.o: src/ISDoc.cxx 
 		$(CXX) -c $< $(CXXFLAGS)
 
-ISUI.o: ISUI.cxx 
+ISUI.o: src/ISUI.cxx 
 		$(CXX) -c $< $(CXXFLAGS)
 
-PicView.o: PicView.cxx 
+PicView.o: src/PicView.cxx 
 		$(CXX) -c $< $(CXXFLAGS)
 		
 # Now define how to link the final app - let's assume it needs image and OpenGL support
@@ -41,6 +41,8 @@ MyApp:  main.o bitmap.o ISDoc.o ISUI.o PicView.o
 		$(CXX) -o $@ main.o bitmap.o ISDoc.o ISUI.o PicView.o $(LINKFLTK_GL)
 		$(STRIP) $@
 		$(POSTBUILD) $@  # only required on OSX, but call it anyway for portability
+		rm -f *.o
 
-
+clean: 
+	rm -fr *.o MyApp MyApp.app
 ############### end #################
